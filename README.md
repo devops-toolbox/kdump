@@ -8,10 +8,10 @@ kdump: Kdump
 Ansible galaxy:
 ---------------
 
-[https://galaxy.ansible.com/devops-toolbox.kdump](https://galaxy.ansible.com/devops-toolbox.kdump)
+[https://galaxy.ansible.com/devopstoolbox.kdump](https://galaxy.ansible.com/devopstoolbox.kdump)
 
 ```bash
-ansible-galaxy install devops-toolbox.kdump
+ansible-galaxy install devopstoolbox.kdump
 ```
 
 Requirements
@@ -60,7 +60,7 @@ Example Playbook
   tasks:
     - name: kdump is configured
       import_role:
-        name: devops-toolbox.kdump
+        name: devopstoolbox.kdump
       vars:
         kdump_packages_state: present
         kdump_remove_packages: true
@@ -89,4 +89,4 @@ MIT
 Author Information
 ------------------
 
-- [Mihai Criveti](https://www.linkedin.com/in/devops-toolbox.)
+- [Mihai Criveti](https://www.linkedin.com/in/devopstoolbox.)
