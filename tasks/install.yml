@@ -1,0 +1,27 @@
+---
+# Install kdump packages
+
+- name: unwanted packages are removed
+  package:
+    name: "{{ kdump_packages_remove }}"
+    state: absent
+  become: true
+  when: kdump_remove_packages
+
+- name: prereq repositories are installed
+  package:
+    name: "{{ kdump_packages_repos }}"
+    state: "{{ kdump_packages_state }}"
+  become: true
+
+- name: prereq packages are installed
+  package:
+    name: "{{ kdump_packages_prereq }}"
+    state: "{{ kdump_packages_state }}"
+  become: true
+
+- name: packages are installed
+  package:
+    name: "{{ kdump_packages_install }}"
+    state: "{{ kdump_packages_state }}"
+  become: true

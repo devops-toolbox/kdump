@@ -1,0 +1,44 @@
+---
+# vars file for packages
+
+# Detected OS
+my_os: "{{ ansible_distribution }}_{{ ansible_distribution_major_version }}"
+
+# Repos create
+kdump_repos_create: "{{ _kdump_repos_create['all']
+  | union ( _kdump_repos_create[my_os]
+  | default([]) ) }}"
+
+# Repos download
+kdump_repos_download: "{{ _kdump_repos_download['all']
+  | union ( _kdump_repos_download[my_os]
+  | default([]) ) }}"
+
+# Templates Copy
+kdump_templates_copy: "{{ _kdump_templates_copy['all']
+  | union ( _kdump_templates_copy[my_os]
+  | default([]) ) }}"
+
+# Services Enable
+kdump_services_enable: "{{ _kdump_services_enable['all']
+  | union ( _kdump_services_enable[my_os]
+  | default([]) ) }}"
+
+# SELinux Enable
+kdump_selinux_enable: "{{ _kdump_selinux_enable['all']
+  | union ( _kdump_selinux_enable[my_os]
+  | default([]) ) }}"
+
+# Packages lists
+kdump_packages_remove: "{{ _kdump_packages_remove['all']
+  | union ( _kdump_packages_remove[my_os]
+  | default([]) ) }}"
+kdump_packages_repos: "{{ _kdump_packages_repos['all']
+  | union ( _kdump_packages_repos[my_os]
+  | default([]) ) }}"
+kdump_packages_prereq: "{{ _kdump_packages_prereq['all']
+  | union ( _kdump_packages_prereq[my_os]
+  | default([]) ) }}"
+kdump_packages_install: "{{ _kdump_packages_install['all']
+  | union ( _kdump_packages_install[my_os]
+  | default([]) ) }}"

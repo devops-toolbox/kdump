@@ -1,0 +1,19 @@
+---
+# defaults file for kdump
+
+kdump_packages_state: present
+kdump_remove_packages: true
+kdump_enable_service: true
+kdump_enable_selinux: true
+kdump_copy_templates: true
+kdump_firewall_configure: true
+kdump_firewall_rules:
+  - service: ssh
+  - port: 3389
+kdump_users:
+  - user: devops
+    group: docker
+kdump_selinux_booleans:
+  - name: ftp_home_dir
+    state: true
+    persistent: true

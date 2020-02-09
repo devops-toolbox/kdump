@@ -1,0 +1,10 @@
+---
+# Template configuration files for kdump
+
+- name: template is copied
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  become: true
+  loop: "{{ kdump_templates_copy }}"
+  when: kdump_copy_templates
